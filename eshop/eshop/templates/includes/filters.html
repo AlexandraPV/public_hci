@@ -1,0 +1,29 @@
+<div class="right-bar">
+    <form action="{% url 'search' %}" method="get">
+        <p>Категория</p>
+        <select name="category" id="">
+            {% for category in all_categories %}
+            <option value="{{ category }}">{{ category.get_name_display }}</option>
+            {% endfor %}
+        </select>
+        <div class="price-filter">
+            <p>Установите цену</p>
+            <label for="">От</label>
+            <input name="from" type="number">
+            <label for="">До</label>
+            <input name="to" type="number">
+            <button>Поиск</button>
+        </div>
+    </form>
+
+    {% if all_laptops|length == 0 %}
+        <h2>К сожелению по вашему запросу ничего не найдено</h2>
+    {% else  %}
+        {% if req_price_to or req_price_from %}
+        <h3>Все что мы смогли найти по вашему запросу</h3>
+           Цена <span>от {{ req_price_from }}</span>  - <span>до {{ req_price_to }} </span>
+        {% endif %}
+    {% endif %}
+
+
+</div>

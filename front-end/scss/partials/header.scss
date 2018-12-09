@@ -1,0 +1,25 @@
+header {
+    position: sticky;
+    top: 0;
+    background: black;
+    width: 100%;
+    z-index: 10;
+    .navigation {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        margin : auto;
+
+        a {
+            color: white;
+            text-transform: uppercase;
+            font-size: 14px;
+            text-decoration: none;
+            padding: 10px 12px;
+
+            &.active-tab {
+                color: orange;
+            }
+        }
+    }
+}

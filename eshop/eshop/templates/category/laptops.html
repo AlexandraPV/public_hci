@@ -1,0 +1,42 @@
+{% extends 'category/index.html' %}
+
+{% block content %}
+{% if req_category %}
+<h2>{{ req_category.get_name_display  }}</h2>
+{% endif %}
+    <h1>{{ title }}</h1>
+    <div class="content-wrap">
+        <div class="container-flex">
+          {% for elem in objects %}
+              <a class="item" href="{% url 'laptop-detail' elem.id %}">
+                <div class="photo-wrap">
+                    {% if elem.image %}
+                        <div class="photo-item" style="background-image: url({{elem.image.url}})"></div>
+                    {% endif %}
+                  </div>
+                  <div class="description">
+                      <p class='key-text'> Модель: </p>
+                      <p class="value-text"> {{ elem.model }}</p>
+                  </div>
+                  <div class="description">
+                      <p class='key-text'> Бренд: </p>
+                      <p class="value-text"> {{ elem.brand }}</p>
+                  </div>
+                  <div class="description">
+                      <p class='key-text'> Цена: </p>
+                      <p class="value-text"> {{ elem.price }}</p>
+                  </div>
+              </a>
+          {% endfor %}
+        </div>
+    </select>
+        <!--{% if req_price_to and req_price_from %}-->
+            <!--{% include 'includes/filters.html' with all_categories=all_categories  req_price_to=req_price_to  req_price_from=req_price_from %}-->
+         <!--{% else  %}-->
+                    <!--{% include 'includes/filters.html' with all_categories=all_categories %}-->
+
+        <!--{% endif %}-->
+    </div>
+{% endblock  %}
+
+

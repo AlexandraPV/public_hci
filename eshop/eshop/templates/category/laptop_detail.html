@@ -1,0 +1,35 @@
+{% extends 'category/index.html' %}
+
+{% block content %}
+{% include 'category/item_product.html' with object=object %}
+
+<p class="view-more">З цим товаром також дивляться</p>
+
+<div class="owl-carousel">
+    {% for detail in source_detail %}
+    <div class="detail-wrap">
+        <a href="{% url 'source_detail_item' id=detail.id %}"></a>
+        <div class="image">
+            <img src="{{ detail.image.url }}" alt="">
+        </div>
+        <div class="title">{{ detail.title}}</div>
+        <div class="desc-item">{{ detail.short_desc }}</div>
+        <div class="price-item">{{ detail.price }} грн</div>
+    </div>
+   {% endfor %}
+</div>
+
+{% block extrascript  %}
+
+<script>
+
+$(document).ready(function() {
+    App.products_all.init();
+})
+
+
+</script>
+{% endblock  %}
+
+
+{% endblock %}

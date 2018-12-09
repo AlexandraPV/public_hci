@@ -1,0 +1,79 @@
+{% load static %}
+{% if object %}
+    <div class="object-item" style="  margin-left: -70px;">
+        {% if object.image %}
+        <img  src="{{ object.image.url }}" alt="">
+        {% endif  %}
+        <div class="desc-item-wrap">
+            <div class="desc-item">
+                <div class="info-item">
+                    <p class="left">Бренд</p>
+                    <p class="right">{{ object.brand }}</p>
+                </div>
+                <div class="info-item">
+                    <p class="left" >Модель</p>
+                    <p class="right">{{ object.model }}</p>
+                </div>
+                 <div class="info-item">
+                    <p class="left" >Операционная система</p>
+                    <p class="right">{{ object.oper_system }}</p>
+                </div>
+                 <div class="info-item">
+                    <p class="left" >Оперативная память</p>
+                    <p class="right">{{ object.oper_memory }}</p>
+                </div>
+                 <div class="info-item">
+                    <p class="left" >Тип экрана</p>
+                    <p class="right">{{ object.get_type_monitor_display }}</p>
+                </div>
+                 <div class="info-item">
+                    <p class="left" >Кол-во ядер</p>
+                    <p class="right">{{ object.count_core }}</p>
+                </div>
+
+                 <div class="btns">
+                     <p class="price">{{ object.price }} грн</p>
+                  <a data-id="{{ object.id }}" data-category = '{{ object.category }}' class="js-add-backet to_backet" href="{% url 'backet:add-to-backet' object.id object.category %}">купить</a>
+                    <a href="">
+                        <img class="heart-icon" src="{% static 'image/heart.png' %}" alt="">
+                    </a>
+            </div>
+
+         </div>
+
+
+
+            <!--<div class="dostavka">-->
+                <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, in!-->
+            <!--</div>-->
+        </div>
+        <div class="desc">
+                    <h3 class="left" >Описание</h3>
+                    <p class="right">{{ object.desc }}</p>
+                </div>
+
+    </div>
+<div class="right-filters">
+ <!--{% include 'includes/filters.html' %}-->
+</div>
+
+
+{% endif %}
+
+
+{% block extrascript  %}
+
+<script>
+    $(document).ready(function() {
+        App.ajax.init();
+    });
+
+</script>
+{% endblock  %}
+
+ <!-- <p>Диагональ: {{ elem.diagonal }}</p>
+                  <p>Операционная система : {{ elem.oper_system }}</p>
+                  <p>Операционная память : {{ elem.oper_memory }}</p>
+                  <p>Тип экрана : {{ elem.type_monitor }}</p>
+                  <p>Кол-во ядер: {{ elem.count_core }}</p>
+                  <p>Цена : {{ elem.price }} грн</p> -->

@@ -1,0 +1,22 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/vendors.min.css' %}">
+<script src="{% static 'js/vendors.min.js' %}" ></script>
+<script src="{% static 'js/app.min.js' %}" ></script>
+
+{% block extrascript  %} {% endblock  %}
+
+<header class="{% if className == 'header' %} {{ className }} {% endif %} " >
+    <nav class="navigation">
+        <a class="{% if category_name == 'all' %} active-tab {% endif %}" href="/">Все товары</a>
+        <a class="{% if category_name == 'laptops' %} active-tab {% endif %}" href="{% url 'laptops' %}">Ноутбуки</a>
+        <a class="{% if category_name == 'mobile_phones' %} active-tab {% endif %}"  href="{% url 'phones' %}">Телефоны</a>
+        <a class="{% if category_name == 'tablet' %} active-tab {% endif %}" href="">Планшеты</a>
+        <a class="{% if category_name == 'source_details' %} active-tab {% endif %}" href="">Комплектующие</a>
+        <a class="{% if category_name == 'nau' %} active-tab {% endif %}" href="">Наушники</a>
+        <a href="">Смарт часы</a>
+    </nav>
+</header>
+
+

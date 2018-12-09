@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="page-wrapper">
+    {% include "includes/header.html" with a=5%}
+
+
+    <section class="content">
+        <div class="container">
+            {% block content %}
+                <div class="home-page">
+                    <div class="item-home laptop">
+                      <a class='inner-text' href="{% url 'laptops' %}">Ноутбуки</a>
+                    </div>
+                    <div class="item-home phones">
+                      <a class='inner-text' href="{% url 'phones' %}">Телефони</a>
+                    </div>
+                    <div class="item-home laptop">
+                      <a class='inner-text' href="{% url 'laptops' %}">Ноутбуки</a>
+                    </div>
+                    <div class="item-home laptop">
+                      <a class='inner-text' href="{% url 'laptops' %}">Ноутбуки</a>
+                    </div>
+                    <div class="item-home laptop">
+                      <a class='inner-text' href="{% url 'laptops' %}">Ноутбуки</a>
+                    </div>
+                    <div class="item-home laptop">
+                      <a class='inner-text' href="{% url 'laptops' %}">Ноутбуки</a>
+                    </div>
+                </div>
+            {% endblock  %}
+        </div>
+    </section>
+</div>
+</body>
+</html>
